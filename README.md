@@ -23,3 +23,7 @@ A project still needs its own file for what is specific to it: the stack, the fi
 the design system, the commands that must pass, its test tools, fixtures and list of known flakes, where records
 live, any standing word to commit, push or deploy, and its rulings. It states only what is specific or different,
 never what the agreement already says. This folder is the source: after an edit here, copy again.
+
+## License
+
+MIT. See `LICENSE`.
