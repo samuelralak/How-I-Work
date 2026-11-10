@@ -1,20 +1,29 @@
 # How I work
 
-How I work with coding agents, as one always-on agreement and four skills. Portable: nothing in it names a project.
+How I work with coding agents. Portable: nothing in it names a project.
 
-- `AGENTS.md`: the always-on agreement, read into every session. Short on purpose.
-- `skills/adversarial-review/SKILL.md`: the reviewer's rules, brief, report and fix rounds, and the drift review.
-- `skills/slice-delivery/SKILL.md`: the loop from brief to production, and running several builders.
-- `skills/eval-gates/SKILL.md`: evals with fixed pass marks, held-out and fresh sets, misses, caps.
-- `skills/writing-tests/SKILL.md`: how tests are named, structured and written, and how flakes are handled.
+## What is here, and why each is the kind of file it is
+
+- **`AGENTS.md`, the agreement.** Rules that hold in every session: how I work, design, review, tests, the
+  interface, usage, delivery, safety. Always loaded, so it stays short.
+- **Three skills,** each a procedure with a clear moment, long enough to load only then:
+  - `skills/adversarial-review/SKILL.md`: briefing a reviewer, the report, the fix rounds, a drift review.
+  - `skills/slice-delivery/SKILL.md`: the loop from brief to production, and running several builders.
+  - `skills/eval-gates/SKILL.md`: evals with fixed pass marks, held-out and fresh sets, misses, caps.
+- **One guide,** read on demand and never loaded by itself:
+  - `guides/from-idea-to-code.md`: starting a product from research, a requirements document and a prototype.
+
+A rule goes in the agreement. A procedure becomes a skill only if it has its own moment and is too long to carry
+always. Background for a rare moment is a guide the agreement points to. Nothing is said twice.
 
 ## To use it everywhere
 
-    cp AGENTS.md ~/.claude/working-agreement.md
-    mkdir -p ~/.claude/skills
-    cp -R skills/adversarial-review skills/slice-delivery skills/eval-gates skills/writing-tests ~/.claude/skills/
+    mkdir -p ~/.claude/how-i-work ~/.claude/skills
+    cp AGENTS.md ~/.claude/how-i-work/AGENTS.md
+    cp -R guides ~/.claude/how-i-work/
+    cp -R skills/adversarial-review skills/slice-delivery skills/eval-gates ~/.claude/skills/
 
-Then add one line to `~/.claude/CLAUDE.md`: `@~/.claude/working-agreement.md`. Run `/memory` in a new session to
+Then add one line to `~/.claude/CLAUDE.md`: `@~/.claude/how-i-work/AGENTS.md`. Run `/memory` in a new session to
 check that it loaded. Do not copy `AGENTS.md` into a project's root: the project's own standards file has that name.
 The agreement carries my writing and commit rules too; if `~/.claude/CLAUDE.md` already states them, keep them in
 one place.

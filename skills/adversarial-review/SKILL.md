@@ -36,8 +36,9 @@ Tell the reviewer to load this skill; the brief then carries only what is specif
    - money: who is charged, how often, and what bounds it;
    - data: schema-only changes, existing rows, anything needing a step after deploy;
    - what changes for live behaviour the moment it deploys;
-   - tests, against the `writing-tests` skill: named as promises, failing for the reason fixed, asserting outcomes,
-     no sleeps or styling selectors; and important behaviour with no test;
+   - tests, against the agreement's Tests rules: does each name read as a promise; take the fix away, does it
+     fail for that reason; does it assert an outcome; any sleep, test id, styling class, wall clock or real outside
+     call; and which promise in the change has no test;
    - organisation: files in their fixed places, names, duplication, dead code, drift from the agreed design;
    - the standards file, rule by rule, on everything the slice touches.
 5. Which test database it may use, and what never to run.

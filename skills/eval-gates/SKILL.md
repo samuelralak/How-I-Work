@@ -7,7 +7,7 @@ description: Gate anything a model writes or judges with evals that have fixed p
 
 A change to what a model reads or writes ships only after its evals pass. The numbers must be true, and the pass
 marks do not move. Evals judge what a model writes. The code around it (the harness, parsers, gates) is tested like
-any other code, by the `writing-tests` skill, and never calls a model for real in a test.
+any other code, by the agreement's Tests rules, and never calls a model for real in a test.
 
 ## Before any run
 

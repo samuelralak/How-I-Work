@@ -18,7 +18,7 @@ A builder has the working agreement and what the brief says. Give it:
 - what is out of bounds: other builders' paths, shared files, uncommitted work that is not its own;
 - where to build and which test database to use;
 - what comes to you first: a paid call, a change to an agreed design, a product question;
-- to load this skill and follow "Build and verify", and the `writing-tests` skill for every test it writes.
+- to load this skill and follow "Build and verify".
 
 The handover wanted: the path list, the diff or a patch against the head, which tests failed first, each check it
 ran with its totals, the head it ran on and when any bundle was built, what it found, what changes for a person,
@@ -26,7 +26,7 @@ any step needed after deploy, and what it did not do.
 
 ## 2. Build and verify
 
-- A design note first for a new mechanism. Tests by the `writing-tests` skill: a failing test first for a fix,
+- A design note first for a new mechanism. Tests by the agreement's Tests rules: a failing test first for a fix,
   named as a promise, asserting outcomes. An organisation pass on your own diff before handing over: places, names,
   duplication, dead code.
 - Run what the project's file says must pass, once, on the final code, with no other suite running. If it names

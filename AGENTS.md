@@ -10,7 +10,6 @@ Where the two clash, the project's file wins only if it says so; otherwise the s
   and design documents are not this: they are a slice.
 - **A slice** (any other change that will be committed): one independent reviewer before the commit. Load the
   `slice-delivery` and `adversarial-review` skills. A small slice gets a short review, not a skipped one.
-- **Any test written, changed or reviewed:** also the `writing-tests` skill.
 - **Anything a model in the product reads or writes:** also the `eval-gates` skill. Evals gate it before it ships.
 - **No other agent in the tree:** skip the rules about shared files, scratch copies and separate test databases.
 
@@ -35,6 +34,19 @@ Where the two clash, the project's file wins only if it says so; otherwise the s
   chat.
 - **Agreed means agreed.** Build what was agreed, as written. A change to it is listed apart with its reason and
   asked first. "Polish" means refine what exists, never replace it.
+
+## From idea to code
+
+- A product is built in order: research, a requirements document, a prototype, a design system, design notes, a
+  build plan, then screens first on made-up data and one journey at a time. Each stage leaves a file and the next
+  is built from that file.
+- The requirements document is the record: numbered requirements, decisions made and decisions open, a changelog.
+  A ruling of mine goes into it the day I make it. Said only in conversation, it is not real yet.
+- Before any screen work, read and render the prototype's part and say what it specifies. Once real screens
+  exist, they and the design system are the newest design, and a new prototype follows them.
+- Where my words and the documents differ, say so at once and settle it before building.
+- When starting a product or a large new area, read `~/.claude/how-i-work/guides/from-idea-to-code.md` first: the
+  stages in full, and the shape of a requirements document and a prototype.
 
 ## Architecture and design
 
@@ -73,13 +85,17 @@ Clean architecture and proper design come before speed. Drift is the failure I w
 ## Tests
 
 - Read the tests beside the code before changing it: they say what is intended.
-- Name each test as one sentence about what a person can do or is guaranteed, in the product's own words.
-- A fix starts with a test that fails for the reason being fixed. Assert what a person sees or what is kept, never
-  only that something exists.
+- Name each test as one sentence about what a person can do or is guaranteed, in the product's own words. A case
+  drawn from a list reads as a sentence too.
+- A fix starts with a test that fails for the reason being fixed. Assert what a person sees, what is kept or what
+  was sent, never only that something exists. Behaviour changed on purpose changes its test in the same commit.
 - A browser test waits for what the person sees and finds things by role, label and the words on screen: no sleeps,
-  no test ids, no styling classes.
-- A failure is real until proven otherwise. Known flakes live on one named list with their cause; never hide one
-  behind a longer wait.
+  no test ids, no styling classes. A wait with a number belongs only in a test about a time limit.
+- A test makes its own data, in the test database only, and leans on nothing another test left. Nothing outside the
+  product is called for real, and time is given to the code, never read from the wall clock.
+- One home for each promise, at the lowest level that can show it. A race is proved with real concurrent workers.
+- A failure is real until proven otherwise. Known flakes live on one named list with their cause; rerun one alone,
+  and never hide it behind a longer wait.
 - What a model writes is judged by evals, not tests; the code around it is tested like any other.
 
 ## Interface
