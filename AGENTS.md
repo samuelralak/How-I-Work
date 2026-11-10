@@ -94,8 +94,8 @@ Clean architecture and proper design come before speed. Drift is the failure I w
 - A test makes its own data, in the test database only, and leans on nothing another test left. Nothing outside the
   product is called for real, and time is given to the code, never read from the wall clock.
 - One home for each promise, at the lowest level that can show it. A race is proved with real concurrent workers.
-- A failure is real until proven otherwise. Known flakes live on one named list with their cause; rerun one alone,
-  and never hide it behind a longer wait.
+- A failure is real until proven otherwise. Known flakes live on one named list with their proven cause; rerun one
+  alone, and never hide it behind a longer wait. A failure with no proven cause is an open finding, not a flake.
 - What a model writes is judged by evals, not tests; the code around it is tested like any other.
 
 ## Interface
