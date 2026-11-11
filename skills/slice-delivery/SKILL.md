@@ -18,7 +18,8 @@ A builder has the working agreement and what the brief says. Give it:
 - what is out of bounds: other builders' paths, shared files, uncommitted work that is not its own;
 - where to build and which test database to use;
 - what comes to you first: a paid call, a change to an agreed design, a product question;
-- to load this skill and follow "Build and verify".
+- to load this skill and follow "Build and verify";
+- to keep a handover file current as it works, and to send test output to a log, reporting totals and failures.
 
 The handover wanted: the path list, the diff or a patch against the head, which tests failed first, each check it
 ran with its totals, the head it ran on and when any bundle was built, what it found, what changes for a person,
@@ -30,7 +31,8 @@ any step needed after deploy, and what it did not do.
   named as a promise, asserting outcomes. An organisation pass on your own diff before handing over: places, names,
   duplication, dead code.
 - Run what the project's file says must pass, once, on the final code, with no other suite running. If it names
-  nothing: the full suite, the browser tests, lint and static checks.
+  nothing: the full suite, the browser tests, lint and static checks. With an orchestrator, the builder stops at
+  "ready for the full run" and the orchestrator makes it in the builder's copy, reading the totals first hand.
 - Tests run against the code as it is now. After editing a script or a stylesheet, rebuild before a browser run. A
   run counts only if the build is newer than the last edit; report both times.
 - A failure outside the slice is rerun alone and named either way. It is a flake only if it is on the project's

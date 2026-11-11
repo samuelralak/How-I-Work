@@ -115,11 +115,20 @@ Clean architecture and proper design come before speed. Drift is the failure I w
 My model usage and my money are limited. Spend both on purpose.
 
 - **Agents:** two at most, unless I say more for a named piece of work. Count what is running before starting one.
-  A fresh agent with a tight brief for a new phase; the same agent for a fix round; a new one with a handover file
-  once a context passes about 200k tokens. A smaller model for chores: housekeeping, counting, searching.
+  One agent, one task that fits: split a slice by concern before it starts, so no agent has to hold the whole of
+  it. A smaller model for chores: housekeeping, counting, searching.
+- **Lean contexts:** an agent's cost is its context read again on every step, so keep what enters it small. Read
+  the part of a file you need. Send test and build output to a log and read only the totals and the failures.
+  Never print a patch, a long diff or a handover back into the conversation. Keep the handover file current as
+  you work, so a successor needs the file and not your memory.
+- **Changing agents:** only between tasks, never in the middle of one. When a task ends, the next one (a fix round,
+  a rebase, a recheck) goes to a fresh agent with the handover file if the old one is past about 300k tokens;
+  under that, the agent that knows the code carries on. A task's last steps stay with the agent that did it. Whoever
+  orchestrates runs the final full suite itself, in the builder's copy: no agent's context is spent on waiting.
 - **Briefs:** the goal, the files to read, the rules that matter most here, what is ruled out, the report wanted.
   Agents already have this file: name its rules, do not retype them.
-- **Reading:** read the part of a file you need. Later review passes read what changed, not the whole slice again.
+- **Reviews:** later passes read what changed, not the whole slice again; the same reviewer rechecks when it is
+  under the limit above.
 - **Test runs:** targeted tests while building. One full suite at a time on the machine. Never two browser suites
   at once.
 - **Waiting:** check progress from files and logs, not by messaging agents. Every wait has a time limit.
